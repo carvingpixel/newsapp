@@ -30,15 +30,17 @@ const list = [
   }
 ]
 
-/*function isSearched(searchTerm) {
-return function(item) {
-    return 
-    item.title.toLowerCase().includes(searchTerm.toLowerCase());
-  }
-}*/
+// function isSearched(searchTerm) {
+//   return function(data) {
+//     return data.title.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1;
+//   }
+// }
+const isSearched = searchTerm => data =>
+data.title.toLowerCase().includes(searchTerm.toLowerCase());
 
-const isSearched = searchTerm => item =>
-item.title.toLowerCase().includes(searchTerm.toLowerCase());
+
+
+
 
 
 // CLASS APP -------------------------------------------------------
@@ -58,8 +60,8 @@ class App extends Component {
         SearchTerm: '',
       };
 
-      this.jeepers = this.jeepers.bind(this); // not really required because of arrow funciton 
       this.onSearchChange = this.onSearchChange.bind(this);
+      this.jeepers = this.jeepers.bind(this); // not really required because of arrow funciton 
       this.onDismiss = this.onDismiss.bind(this);
       // ** CLASS METHODS DONT AUTO BIND this TO THE CLASS INSTANCE
       // this was before fat arrow functions and how they solved the 
@@ -71,10 +73,16 @@ class App extends Component {
       // of hte class here in the constructor.
     }//constructor 
 
-
+  
   //METHODs -----------------------------------------------------------
 
-   jeepers() {
+  //SEARCH
+  onSearchChange(event){
+    this.setState({ searchTerm: event.target.value });
+    }
+
+  //jeepers
+  jeepers() {
       let myState = this.state.numbz;
       console.log("J: Current " + myState);
       const tally = myState + 1;
@@ -82,14 +90,17 @@ class App extends Component {
       console.log("J: Values to State " + tally);
       this.innerCheck();
       }
+
    innerCheck(){
       console.log("J: Inner State View: " + this.state.numbz);
       // Inner state view here is still the value that it started with prior to changes 
       // within the function as it shows the actual current view prior or curr
     }
+
    outerCheck(){
       console.log("True State: " + this.state.numbz);
     }
+
     alertMsg(){
       alert("Alert Broadcasted");
      }
@@ -99,7 +110,7 @@ class App extends Component {
   onDismiss(id) {
     // called onclick and passed the ObjectID as id
     // this.state.list.filter()
-    const updatedList = this.state.list.filter(item => item.objectID !== id);
+    const updatedList = this.state.list.filter(data => data.objectID !== id);
    //update state with updatedList to list
     this.setState({ list: updatedList })
     console.log(this);
@@ -119,11 +130,6 @@ class App extends Component {
     
   }
 
-//SEARCH
-  onSearchChange(event){
-  this.setState({ searchTerm: event.target.value });
-  }
-
   // onClickMe = () => {
     // console.log(this);
     // } //onClick={this.onClickMe}
@@ -139,16 +145,18 @@ class App extends Component {
         <Header />
 
         <h2>{greetings}</h2>
+        <h4> {ownd} </h4>
 
         <form>
           <input type='text' onChange={this.onSearchChange} />
         </form>
 
-        <h4> {ownd} </h4>
-
+    
         {/* {list.map(function(item, key)*/}
         {/* {list.map(item =>  */}
-       {this.state.list.map(data =>
+          {/* {this.state.list.map(data => */}
+      
+          {this.state.list.filter(isSearched(this.state.searchTerm)).map(data =>
           <div className='codeLine' key={data.objectID}>
             
             <span>
