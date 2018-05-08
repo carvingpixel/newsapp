@@ -5,42 +5,44 @@ import Header from './components/header';
 //immutable list defined didnt get changed via the dismiss 
 const list = [
   {
-    title: 'Room Code',
+    teacher: 'Albus Dumbledore',
     url: 'https://facebook.github.io/react',
-    author: 'Jordan Walke',
+    classroom: 'HeadMaster',
     num_comments: 3,
     points: 4,
     objectID: 0,
   },
   {
-    title: '254',
+    teacher: 'Minerva McGonagall',
     url: 'https://github.com/reactjs/redux',
-    author: 'Dan Abramov, Andrew Clark',
+    classroom: 'Transfiguration',
     num_comments: 2,
     points: 5,
     objectID: 1,
   },
   {
-    title: 'HitchHickers Guide',
+    teacher: 'Horace Slughorn',
     url: 'https://github.com/reactjs/redux',
-    author: 'Douglas Adams',
+    classroom: 'Potions',
     num_comments: 2,
     points: 5,
     objectID: 2,
   }
 ]
 
-// function isSearched(searchTerm) {
-//   return function(data) {
-//     return data.title.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1;
-//   }
+// High Order Function outside of the class
+// function isSearched(searchPassed) {
+//   return function(s) {
+//     return s.title.toLowerCase().indexOf(searchPassed.toLowerCase()) !== -1;
+//  }
 // }
-const isSearched = searchTerm => data =>
-data.title.toLowerCase().includes(searchTerm.toLowerCase());
 
+const isSearched = searchPassed => s => s.teacher.toLowerCase().includes(searchPassed);
+//data.title.toLowerCase().includes(searchTerm.toLowerCase());
 
-
-
+function getName() {
+  return "Lokin";
+}
 
 
 // CLASS APP -------------------------------------------------------
@@ -57,7 +59,7 @@ class App extends Component {
       this.state = { 
         list,  // list: list 
         numbz: 0,
-        SearchTerm: '',
+        SearchTerm: null,
       };
 
       this.onSearchChange = this.onSearchChange.bind(this);
@@ -77,8 +79,8 @@ class App extends Component {
   //METHODs -----------------------------------------------------------
 
   //SEARCH
-  onSearchChange(event){
-    this.setState({ searchTerm: event.target.value });
+  onSearchChange(e){
+    this.setState({ searchTerm: e.target.value.toLowerCase() });
     }
 
   //jeepers
@@ -126,19 +128,18 @@ class App extends Component {
       // const updatedList = this.state.list.filter(isNotId);
       //THIRD CONCISE USING ARROW FUNCTION on item
       // const isNotId = item => item.objectID !== id;
-      // const updatedList = this.state.list.filter(isNotId); //stayed the same
-    
+      // const updatedList = this.state.list.filter(isNotId); //stayed the same    
   }
 
   // onClickMe = () => {
     // console.log(this);
     // } //onClick={this.onClickMe}
 
-
+ 
     //RENDER METHOD ---------------------------------------------------
   render() {
-    let greetings = "Greetings lokin, Welcome to Recruitment!";
-    let ownd = "Returned Data List";
+    let greetings = "Greetings " + getName() + ", Welcome to SNAPP!";
+    let ownd = "Classrooms: Hogwarts";
     return (
       <div className="App">  
 
@@ -150,20 +151,19 @@ class App extends Component {
         <form>
           <input type='text' onChange={this.onSearchChange} />
         </form>
-
     
         {/* {list.map(function(item, key)*/}
         {/* {list.map(item =>  */}
-          {/* {this.state.list.map(data => */}
+        {/* {this.state.list.map(data => */}
       
           {this.state.list.filter(isSearched(this.state.searchTerm)).map(data =>
           <div className='codeLine' key={data.objectID}>
             
             <span>
-            <a href={data.url}>{data.title}</a>
+            <a href={data.url}>{data.teacher}</a>
             </span>
 
-            <span> {data.author}</span>
+            <span> {data.classroom}</span>
             <span> {data.num_comments}</span>
             <span> {data.points} </span>
 

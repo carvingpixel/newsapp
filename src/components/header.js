@@ -7,7 +7,7 @@ const Header = () => {
     return (
     <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
-            <h1 className="App-title">Recruitment 2.0</h1>
+            <h1 className="App-title">Safety Native App 2.0</h1>
     </header>
     );
 
