@@ -59,7 +59,7 @@ class App extends Component {
       this.state = { 
         list,  // list: list 
         numbz: 0,
-        SearchTerm: null,
+        searchTerm: null,
       };
 
       this.onSearchChange = this.onSearchChange.bind(this);

@@ -49,7 +49,7 @@ class App extends Component {
       this.state = { 
         list,  
         numbz: 0,
-        SearchTerm: null,
+        searchTerm: null,
       };
 
       this.onSearchChange = this.onSearchChange.bind(this);
