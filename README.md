@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> e3780d54863421bc92bc64a530bbfc068886ca54
 ## Table of Contents
 
 - [Introduction](#updating-to-new-releases)
