@@ -78,10 +78,6 @@ class App extends Component {
   
   //METHODs -----------------------------------------------------------
 
-  //SEARCH
-  onSearchChange(e){
-    this.setState({ searchTerm: e.target.value.toLowerCase() });
-    }
 
   //jeepers
   jeepers() {
@@ -135,6 +131,10 @@ class App extends Component {
     // console.log(this);
     // } //onClick={this.onClickMe}
 
+  //SEARCH
+  onSearchChange(e){
+    this.setState({ searchTerm: e.target.value.toLowerCase() });
+    }
  
     //RENDER METHOD ---------------------------------------------------
   render() {
