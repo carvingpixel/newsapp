@@ -29,4 +29,5 @@
 } */
 
 .codeLine{margin-bottom:10px;}
-.pLeft{padding:14px;}
+.pLeft{margin-left:14px;}
+.searchBox {margin-bottom:20px;}

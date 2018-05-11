@@ -151,7 +151,7 @@ class App extends Component {
         <h2>{greetings}</h2>
         <h4> {ownd} </h4>
 
-        <form>
+        <form className="searchBox">
           <input type='text' onChange={this.onSearchChange} />
         </form>
     
@@ -171,7 +171,7 @@ class App extends Component {
             <span> {data.points} </span>
 
           <span>
-          <button onClick={ () =>
+          <button className="btn btn-default" onClick={ () =>
             this.onDismiss(data.objectID)
             // onDismiss() this would be a function but we have binded it to this.onDismiss  
             // and is now a class method inside an arrow method (HOC) to pass objectIDs
@@ -181,8 +181,8 @@ class App extends Component {
           </span>        
                 
 
-          <span className="pLeft">
-          <button       
+          <span>
+          <button className="pLeft btn btn-default"      
           onClick={ () => this.jeepers()}         
             type='button'>
             Register
@@ -190,8 +190,8 @@ class App extends Component {
             </span>    
 
 
-          <span className="pLeft">
-          <button       
+          <span>
+          <button className="pLeft btn btn-default"      
           onClick={this.alertMsg}         
             type='button'>
             Alert
