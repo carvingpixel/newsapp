@@ -37,7 +37,7 @@ const list = [
 //  }
 // }
 
-const isSearched = searchPassed => s => s.teacher.toLowerCase().includes(searchPassed);
+const isSearched = searchPassed => s => s.teacher.toLowerCase().includes(searchPassed.toLowerCase());
 //data.title.toLowerCase().includes(searchTerm.toLowerCase());
 
 function getName() {
@@ -59,7 +59,7 @@ class App extends Component {
       this.state = { 
         list,  // list: list 
         numbz: 0,
-        SearchTerm: null,
+        searchTerm: '',
       };
 
       this.onSearchChange = this.onSearchChange.bind(this);
@@ -133,13 +133,16 @@ class App extends Component {
 
   //SEARCH
   onSearchChange(e){
-    this.setState({ searchTerm: e.target.value.toLowerCase() });
+    this.setState({ searchTerm: e.target.value}); 
     }
  
     //RENDER METHOD ---------------------------------------------------
   render() {
+    
+    const { searchTerm, list } = this.state;
     let greetings = "Greetings " + getName() + ", Welcome to SNAPP!";
     let ownd = "Classrooms: Hogwarts";
+
     return (
       <div className="App">  
 
@@ -155,8 +158,8 @@ class App extends Component {
         {/* {list.map(function(item, key)*/}
         {/* {list.map(item =>  */}
         {/* {this.state.list.map(data => */}
-      
-          {this.state.list.filter(isSearched(this.state.searchTerm)).map(data =>
+        {/*{this.state.list.filter(isSearched(this.state.searchTerm)).map(data =>   */}
+           {this.state.list.filter(isSearched(searchTerm)).map(data =>
           <div className='codeLine' key={data.objectID}>
             
             <span>
