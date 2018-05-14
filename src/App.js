@@ -74,8 +74,6 @@ class App extends Component {
 
   
   //METHODs -----------------------------------------------------------
-
-
   //jeepers
   jeepers() {
       let myState = this.state.numbz;
@@ -141,11 +139,9 @@ class App extends Component {
     return (
       <div className="App">  
 
-        <Header />
+      <Header />
+      <SearchBox />
 
-     <SearchBox />
-
-     
         {/* {list.map(function(item, key)*/}
         {/* {list.map(item =>  */}
         {/* {this.state.list.map(data => */}

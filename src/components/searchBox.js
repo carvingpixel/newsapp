@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react';  // if component calls JSX
 
 // Just Searchbox Only
 const SearchBox = () => {
