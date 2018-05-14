@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Header from './components/header';
+import SearchBox from './components/searchBox';
 
 //immutable list defined didnt get changed via the dismiss 
 const list = [
@@ -39,10 +40,6 @@ const list = [
 
 const isSearched = searchPassed => s => s.teacher.toLowerCase().includes(searchPassed.toLowerCase());
 //data.title.toLowerCase().includes(searchTerm.toLowerCase());
-
-function getName() {
-  return "Lokin";
-}
 
 
 // CLASS APP -------------------------------------------------------
@@ -140,21 +137,15 @@ class App extends Component {
   render() {
     
     const { searchTerm, list } = this.state;
-    let greetings = "Greetings " + getName() + ", Welcome to SNAPP!";
-    let ownd = "Classrooms: Hogwarts";
 
     return (
       <div className="App">  
 
         <Header />
 
-        <h2>{greetings}</h2>
-        <h4> {ownd} </h4>
+     <SearchBox />
 
-        <form className="searchBox">
-          <input type='text' onChange={this.onSearchChange} />
-        </form>
-    
+     
         {/* {list.map(function(item, key)*/}
         {/* {list.map(item =>  */}
         {/* {this.state.list.map(data => */}
