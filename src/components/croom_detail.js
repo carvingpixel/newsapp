@@ -1,5 +1,5 @@
 import React from 'react';  // if component calls JSX
-import SearchBox from './searchBox';
+
 const list = [
     {
       teacher: 'Albus Dumbledore',
@@ -93,7 +93,6 @@ class CroomDetail extends React.Component {
         return (  
         <div>
 
-          {/* <SearchBox searchTerm={this.state.searchTerm} /> */}
           <form>
           <input type='text' onChange={this.onSearchChange} />
           </form>
