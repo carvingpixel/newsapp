@@ -1,10 +1,15 @@
-import React from 'react';  // if component calls JSX
+// import React, {Component} from 'react';  // if component calls JSX
 
+// // Just Searchbox Only
+// //const SearchBox = () => {
+// class SearchBox extends Component {
+// render () {
+// return (
+//         <form>
+//           <input type='text' onChange={this.onSearchChange} />
+//         </form>
+//     );
+// };
+// };
 
-// Just Searchbox Only
-const SearchBox = () => {
-
-};
-
-
-export default SearchBox;
+// export default SearchBox;

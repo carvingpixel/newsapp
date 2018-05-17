@@ -1,5 +1,5 @@
 import React from 'react';  // if component calls JSX
-
+import SearchBox from './searchBox';
 const list = [
     {
       teacher: 'Albus Dumbledore',
@@ -72,7 +72,7 @@ class CroomDetail extends React.Component {
 
 
  
-//DISMISS
+  //DISMISS
   onDismiss(id) {
     const updatedList = this.state.list.filter(data => data.objectID !== id);
     this.setState({ list: updatedList })
@@ -88,17 +88,15 @@ class CroomDetail extends React.Component {
   
     render() {
     
-        const { searchTerm, list } = this.state;
+        const { searchTerm } = this.state;
     
         return (  
         <div>
 
-        {/* <SearchBox /> */}
-        <form className="searchBox">
+          {/* <SearchBox searchTerm={this.state.searchTerm} /> */}
+          <form>
           <input type='text' onChange={this.onSearchChange} />
-        </form>
-
-
+          </form>
 
            {this.state.list.filter(isSearched(searchTerm)).map(data =>
             <div className='codeLine' key={data.objectID}>
